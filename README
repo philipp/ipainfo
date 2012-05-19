@@ -1,1 +1,4 @@
-First Post
+Extract information from your iOS .ipa files.
+It's infuriating how little help iTunes is if you have lots of apps (and by lots I mean many hundreds at least).
+So this will run through all the .ipa files and build a spreadsheet with all the meta-information it can glean.
+
