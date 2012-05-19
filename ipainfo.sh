@@ -36,4 +36,4 @@ done
 
 cd "$outDir"
 
-$IPAINFOPL
+$IPAINFOPL -d "$ipaDir"
