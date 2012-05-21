@@ -7,8 +7,12 @@ ipaDir="$USERPROFILE/Music/iTunes/iTunes Media/Mobile Applications/"
 #ipaDir="/cygdrive/c/tmp/tmpipa"
 outDir="/cygdrive/c/tmp/tmpipap"
 
+# we'll assume `unzip` is in our path somewhere, for now
 UNZIP=unzip
-IPAINFOPL=ipainfo.pl
+
+thisfile=`readlink -f $0`
+progdir=`dirname $thisfile`
+IPAINFOPL=$progdir/ipainfo.pl
 
 plistFile=iTunesMetadata.plist
 
