@@ -15,7 +15,7 @@ if ( $options{'h'} or $options{'?'} ) {
 }
 
 my $outfile = $options{'o'} || "ipainfo.tsv";
-($outfile) = $outfile =~ m{([\w.-]+)};
+($outfile) = $outfile =~ m{([\w.-]+)}; # minimal cleanup/untainting
 
 my $ipadir = $options{'d'} || ".";
 
@@ -390,6 +390,11 @@ sub check_and_emit {
 
 sub sanity_check {
 	my ($pdata) = @_;
+
+	if ($pdata->{itemName} ne $pdata->{playlistName}) {
+			print STDERR "itemName '%s' doesn't match playlistName '%s'\n",
+			  $pdata->{itemName}, $pdata->{playlistName};
+	}
 
 	for my $device_capability_found (keys %{$pdata->{'UIRequiredDeviceCapabilities'}}) {
 		$device_capabilities_found{$device_capability_found}++;
